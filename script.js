@@ -112,12 +112,12 @@ const revert = () => {
 	}
 	result.reverse().forEach(a => {parent.appendChild(a)})
 }
+let buttons = document.querySelectorAll('button')
 let timer
-const start = () => {timer = setInterval(pushName,1000); return timer}
-const stop = () => {clearInterval(timer)}
-let buttons = document.getElementsByClassName('list-buttons')[0].children
-buttons[0].addEventListener('click', start)
-buttons[1].addEventListener('click', stop)
-buttons[2].addEventListener('click', revert)
+const start = () => {buttons[0].disabled = 'true'; timer = setInterval(pushName,1000); return timer}
+const stop = () => {clearInterval(timer); buttons[0].disabled = ''}
+buttons[0].onclick = start
+buttons[1].onclick = stop
+buttons[2].onclick = revert
 
 
