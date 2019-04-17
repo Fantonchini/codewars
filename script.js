@@ -120,4 +120,3 @@ buttons[0].onclick = start
 buttons[1].onclick = stop
 buttons[2].onclick = revert
 
-
