@@ -135,25 +135,3 @@ function fib(n) {
 	let sqrt = Math.sqrt(5), a = (1 + sqrt) / 2, b = (1 - sqrt) / 2
 	return Math.ceil((Math.pow(a,n) - Math.pow(b,n)) / sqrt)
 }
-
-function bestMatch(ALAHLYGoals, zamalekGoals) {
-	let arr = []
-	for (let i = 0; i < ALAHLYGoals.length; i++) {
-		let temp = ALAHLYGoals[i] - zamalekGoals[i]
-		arr.push(temp)
-	}
-	let min = Math.min(...arr), minIndexes = []
-	if (arr.indexOf(min) === arr.lastIndexOf(min)) {
-		return arr.indexOf(Math.min(...arr))
-	} else {
-		while (~arr.indexOf(min)) {
-  			minIndexes.push(arr.indexOf(min))
-  			arr.splice(arr.indexOf(min),1)
-		}
-		console.log('minIndexes',minIndexes)
-		let result = minIndexes.map(a=> zamalekGoals[a])
-		console.log('zamalekGoals',zamalekGoals)
-		console.log('result', result)
-		return minIndexes[result.indexOf(Math.max(...result))]
-	}
-}
